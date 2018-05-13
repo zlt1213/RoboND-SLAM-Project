@@ -11,7 +11,7 @@
       <wheelSeparation>0.4</wheelSeparation>
       <wheelDiameter>0.2</wheelDiameter>
       <torque>10</torque>
-      <commandTopic>cmd_vel</commandTopic>
+      <commandTopic>/teleop/cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>robot_footprint</robotBaseFrame>
@@ -21,7 +21,7 @@
 
   <!-- RGBD Camera -->
   <gazebo reference="camera">
-    <sensor type="depth" name="camera1">
+    <sensor type="depth" name="camera">
         <always_on>1</always_on>
         <update_rate>20.0</update_rate>
         <visualize>true</visualize>
@@ -44,7 +44,11 @@
              <alwaysOn>true</alwaysOn>
                 <updateRate>10.0</updateRate>
                 <cameraName>camera</cameraName>
-                <frameName>camera_rgbd_frame</frameName>
+                <frameName>camera_rgb_optical_frame</frameName>
+            <!-- <imageTopicName>/camera/rgb/image_raw</imageTopicName>
+            <depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
+            <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
+            <cameraInfoTopicName>/camera/rgb/camera_info</cameraInfoTopicName> -->
             <imageTopicName>rgb/image_raw</imageTopicName>
             <depthImageTopicName>depth/image_raw</depthImageTopicName>
             <pointCloudTopicName>depth/points</pointCloudTopicName>
@@ -70,9 +74,6 @@
     <material>Gazebo/White</material>
   </gazebo>
 
-  <!-- <gazebo reference="camera">
-    <material>Gazebo/Black</material>
-  </gazebo> -->
 
   <gazebo reference="left_wheel">
     <material>Gazebo/White</material>
@@ -82,12 +83,5 @@
     <material>Gazebo/White</material>
   </gazebo>
 
-  <gazebo reference="right_wheel">
-    <material>Gazebo/White</material>
-  </gazebo>
-
-  <gazebo reference="right_wheel">
-    <material>Gazebo/White</material>
-  </gazebo>
 
 </robot>
